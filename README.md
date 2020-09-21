@@ -18,6 +18,8 @@ leafterm-1.0.0
     4) Color Scheme (configurable)
     5) Fontsize (configurable)
     6) FontFamily (configurable)
+    7) Copy (shortcut is Ctrl-C) (non-configurable)
+    8) Paste (shortcut is Ctrl-V) (non-configurable)
 
 # Files
 leafterm-1.0.0
