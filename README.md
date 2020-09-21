@@ -25,3 +25,8 @@ leafterm-1.0.0
 leafterm-1.0.0
 #
     /home/yourusername/.config/leafterm/leafterm.conf
+
+# Extra info
+Report bugs here: https://github.com/Code-Sploit/leafterm/issues
+
+# Updates
