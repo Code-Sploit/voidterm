@@ -148,7 +148,7 @@ int getFontSizeValue(string filename) {
                                 else{
                                         continue;
                                 }
-                                return fontsize;
+                        return fontsize;
                         }
                 }
         }
