@@ -25,21 +25,24 @@ void setShell(string shellname) {
 }
 
 main(int argc, char *argv[]) {
+        string configfile = getenv("HOME");
+        configfile.append("/.config/leafterm/leafterm.conf");
         QApplication app(argc, argv);
         QMainWindow *mainWindow = new QMainWindow();
-        const QString fonttype = QString::fromStdString(getFontTypeValue("/home/skyfight/.config/leafterm/leafterm.conf"));
+        const QString fonttype = QString::fromStdString(getFontTypeValue(configfile));
         setenv("TERM", "konsole-256color", 1);
-        setShell(getDefaultShellValue("/home/skyfight/.config/leafterm/leafterm.conf"));
+        setShell(getDefaultShellValue(configfile));
         QTermWidget *console = new QTermWidget();
-
         QFont font = QApplication::font();
         font.setFamily(fonttype);
-        font.setPointSize(getFontSizeValue("/home/skyfight/.config/leafterm/leafterm.conf"));
+        font.setPointSize(getFontSizeValue(configfile));
+        font.setBold(getBoldFontValue(configfile));
 
         // Set Configured settings
-        console->setColorScheme(getColorSchemeValue("/home/skyfight/.config/leafterm/leafterm.conf"));
-        console->setTerminalOpacity(getOpacityValue("/home/skyfight/.config/leafterm/leafterm.conf"));
+        console->setColorScheme(getColorSchemeValue(configfile));
+        console->setFont(font);
         console->setScrollBarPosition(QTermWidget::ScrollBarRight);
+        console->setTerminalOpacity(getOpacityValue(configfile));
 
         // Launch the terminal && define keybindings
         QObject::connect(console, &QTermWidget::termKeyPressed, mainWindow,
