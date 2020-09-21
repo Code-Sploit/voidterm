@@ -43,7 +43,6 @@ float getOpacityValue(string filename) {
                         while (getline(cfile, line)) {
                                 if (line.find("opacity") == 0){
                                         string output2 = line.substr(line.find("=") + 1);
-                                        // string output2 = "0.9";
                                         float output3 = stof(output2);
                                         return output3;
                                 }
@@ -258,5 +257,121 @@ string getDefaultShellValue(string filename) {
         {
                 string defaultshell = "/bin/bash";
                 return defaultshell;
+        }
+}
+
+bool checkBoldFont(string filename) {
+        fstream cfile;
+        cfile.open(filename, ios::in);
+
+        if (cfile.is_open()) {
+                bool boldfont = false;
+                string line;
+                while (getline(cfile, line)) {
+                        if (line.find("bold_font") == 0) {
+                                return true;
+                        }
+                        else
+                        {
+                                continue;
+                        }
+                }
+                if (boldfont = false) {
+                        return false;
+                }
+        }
+        else
+        {
+                return false;
+        }
+}
+
+bool getBoldFontValue(string filename) {
+        fstream cfile;
+        cfile.open(filename, ios::in);
+
+        if (cfile.is_open()) {
+                bool boldfont = false;
+                string line;
+                while (getline(cfile, line)) {
+                        if (line.find("bold_font") == 0) {
+                                string output2 = line.substr(line.find("=") + 1);
+                                if (output2 == "true") {
+                                        return true;
+                                }
+                                else
+                                {
+                                        return false;
+                                }
+                        }
+                        else
+                        {
+                                continue;
+                        }
+                }
+                return boldfont;
+        }
+        else
+        {
+                bool boldfont = false;
+                return boldfont;
+        }
+}
+
+bool checkItalicFont(string filename) {
+        fstream cfile;
+        cfile.open(filename, ios::in);
+
+        if (cfile.is_open()) {
+                bool italicfont = false;
+                string line;
+                while (getline(cfile, line)) {
+                        if (line.find("italic_font") == 0) {
+                                return true;
+                        }
+                        else
+                        {
+                                continue;
+                        }
+                }
+                if (italicfont = false) {
+                        return false;
+                }
+        }
+        else
+        {
+                return false;
+        }
+}
+
+bool getItalicFontValue(string filename) {
+        fstream cfile;
+        cfile.open(filename, ios::in);
+
+        if (cfile.is_open()) {
+                bool italicfont = false;
+                string line;
+                while (getline(cfile, line)) {
+                        if (line.find("italic_font") == 0) {
+                                string output2 = line.substr(line.find("=") + 1);
+                                if (output2 == "true") {
+                                        return true;
+                                }
+                                else
+                                {
+                                        return false;
+                                }
+                        }
+                        else
+                        {
+                                continue;
+                        }
+                }
+                return italicfont;
+        }
+        else
+        {
+                bool italicfont = false;
+                return italicfont;
         }
 }
