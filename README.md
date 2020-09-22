@@ -31,5 +31,3 @@ leafterm-1.0.1
 
 # Extra info
 Report bugs here: https://github.com/Code-Sploit/leafterm/issues
-
-# Updates
