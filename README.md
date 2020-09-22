@@ -5,8 +5,10 @@ Leafterm a simple terminal written in c++ and relying on Qt.
     $ cmake .
     $ make
 Optional:
+#
     $ sudo make sysinstall
 or
+#
     # make sysinstall
 
 # Utilities
