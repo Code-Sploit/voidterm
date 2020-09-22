@@ -23,6 +23,7 @@ leafterm-1.0.1
     7) Copy (shortcut is Ctrl-C) (non-configurable)
     8) Paste (shortcut is Ctrl-V) (non-configurable)
     9) Bold text (configurable)
+    10) Scrollbar
 
 # Files
 leafterm-1.0.1
