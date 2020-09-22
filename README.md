@@ -12,7 +12,7 @@ or
     # make sysinstall
 
 # Utilities
-leafterm-1.0.1
+leafterm-1.0.2
 #
     1) Config Parser
     2) Opacity (configurable)
@@ -26,7 +26,7 @@ leafterm-1.0.1
     10) Scrollbar
 
 # Files
-leafterm-1.0.1
+leafterm-1.0.2
 #
     /home/yourusername/.config/leafterm/leafterm.conf
 
