@@ -24,15 +24,25 @@ void setShell(string shellname) {
         setenv("SHELL", converted_shellname, 2);
 }
 
+void setTerm(string termvalue) {
+        const char *converted_termvalue = termvalue.c_str();
+        setenv("TERM", converted_termvalue, 2);
+}
+
 main(int argc, char *argv[]) {
         string configfile = getenv("HOME");
         configfile.append("/.config/leafterm/leafterm.conf");
+
         QApplication app(argc, argv);
         QMainWindow *mainWindow = new QMainWindow();
+ 
         const QString fonttype = QString::fromStdString(getFontTypeValue(configfile));
-        setenv("TERM", "konsole-256color", 1);
+
+        setTerm(getTermValue(configfile));
         setShell(getDefaultShellValue(configfile));
+
         QTermWidget *console = new QTermWidget();
+
         QFont font = QApplication::font();
         font.setFamily(fonttype);
         font.setPointSize(getFontSizeValue(configfile));
