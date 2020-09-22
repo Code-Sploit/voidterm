@@ -317,3 +317,52 @@ bool getBoldFontValue(string filename) {
                 return boldfont;
         }
 }
+
+bool checkTerm(string filename) {
+        fstream cfile;
+        cfile.open(filename, ios::in);
+
+        if (cfile.is_open()) {
+                bool term = false;
+                string line;
+                while (getline(cfile, line)) {
+                        if (line.find("termenv") == 0) {
+                                return true;
+                        }
+                        else
+                        {
+                                continue;
+                        }
+                }
+                if (term == false) {
+                        return false;
+                }
+        }
+        else
+        {
+                return false;
+        }
+}
+
+string getTermValue(string filename) {
+        fstream cfile;
+        cfile.open(filename, ios::in);
+
+        if (cfile.is_open()) {
+                string line;
+                while (getline(cfile, line)) {
+                        if (line.find("termenv") == 0) {
+                                string output2 = line.substr(line.find("=") + 1);
+                                return output2;
+                        }
+                        else
+                        {
+                                continue;
+                        }
+                }
+                string output2 = "konsole-256color";
+                return output2;
+        }
+        string output2 = "konsole-256color";
+        return output2;
+}
