@@ -25,6 +25,7 @@ leafterm-V1.0
     9) Bold text (configurable)
     10) Scrollbar
     11) Editor (configurable)
+    12) Italic text (configurable)
 
 # Files
 leafterm-V1.0
