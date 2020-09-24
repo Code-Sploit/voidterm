@@ -50,9 +50,11 @@ main(int argc, char *argv[]) {
         QTermWidget *console = new QTermWidget();
 
         QFont font = QApplication::font();
+
         font.setFamily(fonttype);
         font.setPointSize(getFontSizeValue(configfile));
         font.setBold(getBoldFontValue(configfile));
+        font.setItalic(getItalicFontValue(configfile));
 
         // Set Configured settings
         console->setColorScheme(getColorSchemeValue(configfile));
