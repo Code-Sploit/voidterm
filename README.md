@@ -12,7 +12,7 @@ or
     # make sysinstall
 
 # Utilities
-leafterm-1.0.2
+leafterm-V1.0
 #
     1) Config Parser
     2) Opacity (configurable)
@@ -24,9 +24,10 @@ leafterm-1.0.2
     8) Paste (shortcut is Ctrl-V) (non-configurable)
     9) Bold text (configurable)
     10) Scrollbar
+    11) Editor (configurable)
 
 # Files
-leafterm-1.0.2
+leafterm-V1.0
 #
     /home/yourusername/.config/leafterm/leafterm.conf
 
