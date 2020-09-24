@@ -5,6 +5,8 @@
 #include <string>
 #include <bits/stdc++.h>
 
+#include "fallbacks.h"
+
 using namespace std;
 
 bool checkOpacity(string filename) {
@@ -50,8 +52,16 @@ float getOpacityValue(string filename) {
                                         continue;
                                 }
                         }
-                        return opacityV;
+                        return ::opacity;
                 }
+                else
+                {
+                        return ::opacity;
+                }
+        }
+        else
+        {
+                return ::opacity;
         }
 }
 
@@ -86,7 +96,6 @@ QString getColorSchemeValue(string filename) {
                 cfile.open(filename, ios::in);
 
                 if (cfile.is_open()) {
-                        QString colorScheme = "Aco";
                         string line;
                         while (getline(cfile, line)) {
                                 if (line.find("color_scheme") == 0){
@@ -98,8 +107,16 @@ QString getColorSchemeValue(string filename) {
                                         continue;
                                 }
                         }
-                        return colorScheme;
+                        return ::colorScheme;
                 }
+                else
+                {
+                        return ::colorScheme;
+                }
+        }
+        else
+        {
+                return ::colorScheme;
         }
 }
 
@@ -137,19 +154,26 @@ int getFontSizeValue(string filename) {
                 cfile.open(filename, ios::in);
 
                 if (cfile.is_open()) {
-                        int fontsize = 13;
                         string line;
                         while (getline(cfile, line)) {
                                 if (line.find("font_size") == 0){
-                                        int output2 = stoi(line.substr(line.find("=") + 1));;
+                                        int output2 = stoi(line.substr(line.find("=") + 1));
                                         return output2;
                                 }
                                 else{
                                         continue;
                                 }
-                        return fontsize;
+                        return ::fontsize;
                         }
                 }
+                else
+                {
+                        return ::fontsize;
+                }
+        }
+        else
+        {
+                return ::fontsize;
         }
 }
 
@@ -185,7 +209,6 @@ string getFontTypeValue(string filename) {
                 cfile.open(filename, ios::in);
 
                 if (cfile.is_open()) {
-                        string fonttype = "Monospace";
                         string line;
                         while (getline(cfile, line)) {
                                 if (line.find("font_type") == 0){
@@ -196,8 +219,16 @@ string getFontTypeValue(string filename) {
                                         continue;
                                 }
                         }
-                        return fonttype;
+                        return ::fonttype;
                 }
+                else
+                {
+                        return ::fonttype;
+                }
+        }
+        else
+        {
+                return ::fonttype;
         }
 }
 
@@ -233,7 +264,6 @@ string getDefaultShellValue(string filename) {
                 cfile.open(filename, ios::in);
 
                 if (cfile.is_open()) {
-                        string defaultshell = "/bin/bash";
                         string line;
                         while (getline(cfile, line)) {
                                 if (line.find("default_shell") == 0) {
@@ -245,18 +275,16 @@ string getDefaultShellValue(string filename) {
                                         continue;
                                 }
                         }
-                        return defaultshell;
+                        return ::defaultshell;
                 }
                 else
                 {
-                        string defaultshell = "/bin/bash";
-                        return defaultshell;
+                        return ::defaultshell;
                 }
         }
         else
         {
-                string defaultshell = "/bin/bash";
-                return defaultshell;
+                return ::defaultshell;
         }
 }
 
@@ -287,34 +315,39 @@ bool checkBoldFont(string filename) {
 }
 
 bool getBoldFontValue(string filename) {
-        fstream cfile;
-        cfile.open(filename, ios::in);
+        if (checkBoldFont(filename) == 1) {
+                fstream cfile;
+                cfile.open(filename, ios::in);
 
-        if (cfile.is_open()) {
-                bool boldfont = false;
-                string line;
-                while (getline(cfile, line)) {
-                        if (line.find("bold_font") == 0) {
-                                string output2 = line.substr(line.find("=") + 1);
-                                if (output2 == "true") {
-                                        return true;
+                if (cfile.is_open()) {
+                        bool boldfont = false;
+                        string line;
+                        while (getline(cfile, line)) {
+                                if (line.find("bold_font") == 0) {
+                                        string output2 = line.substr(line.find("=") + 1);
+                                        if (output2 == "true") {
+                                                return true;
+                                        }
+                                        else
+                                        {
+                                                return false;
+                                        }
                                 }
                                 else
                                 {
-                                        return false;
+                                        continue;
                                 }
                         }
-                        else
-                        {
-                                continue;
-                        }
+                        return boldfont;
                 }
-                return boldfont;
+                else
+                {
+                        return ::boldfont;
+                }
         }
         else
         {
-                bool boldfont = false;
-                return boldfont;
+                return ::boldfont;
         }
 }
 
@@ -365,4 +398,57 @@ string getTermValue(string filename) {
         }
         string output2 = "konsole-256color";
         return output2;
+}
+
+bool checkEditor(string filename) {
+        fstream cfile;
+        cfile.open(filename, ios::in);
+
+        if (cfile.is_open()) {
+                bool term = false;
+                string line;
+                while (getline(cfile, line)) {
+                        if (line.find("editor") == 0) {
+                                return true;
+                        }
+                        else
+                        {
+                                continue;
+                        }
+                }
+                if (term == false) {
+                        return false;
+                }
+        }
+        else
+        {
+                return false;
+        }
+}
+
+string getDefaultEditorValue(string filename) {
+        if (checkEditor(filename) == 1) {
+                fstream cfile;
+                cfile.open(filename, ios::in);
+
+                if (cfile.is_open()) {
+                        string line;
+                        while (getline(cfile, line)) {
+                                if (line.find("editor") == 0) {
+                                        string output2 = line.substr(line.find("=") + 1);
+                                        return output2;
+                                }
+                                else
+                                {
+                                        continue;
+                                }
+                        }
+                        return ::editor;
+                }
+                else
+                {
+                        return ::editor;
+                }
+        }
+        return ::editor;
 }
