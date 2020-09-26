@@ -39,7 +39,7 @@ void setEditor(string editorvalue) {
 main(int argc, char *argv[]) {
 	// Define configfile path
 	string configfile = getenv("HOME");
-	configfile.append("/.config/leafterm/leafterm.conf");
+	configfile.append("/.config/voidterm/voidterm.conf");
 
 	// Define mainWindows
 	QApplication app(argc, argv);
