@@ -1,4 +1,4 @@
-# voidterm
+# Voidterm
 Voidterm a simple terminal written in c++ and relying on Qt.
 
 # Installation
