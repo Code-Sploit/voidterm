@@ -1,5 +1,5 @@
-# leafterm
-Leafterm a simple terminal written in c++ and relying on Qt.
+# voidterm
+Voidterm a simple terminal written in c++ and relying on Qt.
 
 # Installation
     $ cmake .
@@ -12,7 +12,7 @@ or
     # make sysinstall
 
 # Utilities
-leafterm-V1.2
+voidterm-V1.2
 #
     1) Config Parser
     2) Opacity (configurable)
@@ -29,9 +29,9 @@ leafterm-V1.2
     13) Actions Menu (configurable)
 
 # Files
-leafterm-V1.2
+voidterm-V1.2
 #
-    /home/yourusername/.config/leafterm/leafterm.conf
+    /home/yourusername/.config/voidterm/voidterm.conf
 
 # Extra info
-Report bugs here: https://github.com/Code-Sploit/leafterm/issues
+Report bugs here: https://github.com/Code-Sploit/voidterm/issues
