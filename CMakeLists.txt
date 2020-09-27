@@ -13,5 +13,5 @@ file(GLOB SOURCES src/*.cpp)
 add_executable(${EXEC} ${SOURCES})
 
 ADD_CUSTOM_TARGET(sysinstall
-        COMMAND rm -rf /usr/bin/leafterm && cp bin/voidterm /usr/bin/voidterm
+        COMMAND cp bin/voidterm /usr/bin/voidterm
 )
