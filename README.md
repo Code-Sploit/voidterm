@@ -33,7 +33,6 @@ voidterm-V1.1
 voidterm-V1.1
 #
     /home/yourusername/.config/voidterm/voidterm.conf
-    /home/yourusername/.config/voidterm/shell.conf
 
 # Extra info
 Report bugs here: https://github.com/Code-Sploit/voidterm/issues
