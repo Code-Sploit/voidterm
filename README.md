@@ -12,7 +12,7 @@ or
     # make sysinstall
 
 # Utilities
-voidterm-V1.2
+voidterm-V1.1
 #
     1) Config Parser
     2) Opacity (configurable)
@@ -27,11 +27,13 @@ voidterm-V1.2
     11) Editor (configurable)
     12) Italic text (configurable)
     13) Actions Menu (configurable)
+    14) Log system (file == /tmp/voidterm-log/voidterm.log)
 
 # Files
-voidterm-V1.2
+voidterm-V1.1
 #
     /home/yourusername/.config/voidterm/voidterm.conf
+    /home/yourusername/.config/voidterm/shell.conf
 
 # Extra info
 Report bugs here: https://github.com/Code-Sploit/voidterm/issues
